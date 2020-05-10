@@ -6,5 +6,9 @@ provider:
 functions:
     find:
         runtime: nodejs12.x
-        timeout: 20
+        timeout: 10
         handler: src/handler.find
+    geoadd:
+        runtime: nodejs12.x
+        timeout: 10
+        handler: src/handler.geoAdd

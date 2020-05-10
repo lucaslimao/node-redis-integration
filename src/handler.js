@@ -39,12 +39,48 @@ const find = async (event, context, callback) => {
 
         console.log('Entrou no find')
 
+        console.log(event)
+
         const reply = await client.get('foo')
 
-            return callback(null, {
-                statusCode: 200,
-                body: reply
-            })
+        return callback(null, {
+            statusCode: 200,
+            body: reply
+        })
+
+    } catch (err) {
+
+        console.log('Erro no find')
+
+        throw err
+
+    }
+
+}
+
+const geoAdd = async (event, context, callback) => {
+
+    try {
+
+        context.callbackWaitsForEmptyEventLoop = false
+
+        console.log('Entrou no find')
+
+        const longitude = parseFloat(event.queryStringParameters.lng)
+        const latitude = parseFloat(event.queryStringParameters.lat)
+
+        const item = {
+            id: '2',
+            name: 'joao',
+            email: 'joao@'
+        }
+        // -22.3401804,-49.0651815
+        const reply = await client.geoadd('usuarios', longitude, latitude, JSON.stringify(item))
+
+        return callback(null, {
+            statusCode: 200,
+            body: reply
+        })
 
     } catch (err) {
 
@@ -57,5 +93,6 @@ const find = async (event, context, callback) => {
 }
 
 module.exports = {
-    find: start(find)
+    find: start(find),
+    geoAdd: start(geoAdd)
 }

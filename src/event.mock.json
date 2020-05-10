@@ -1,0 +1,9 @@
+{
+    "queryStringParameters": {
+        "lng": "-49.0541619",
+        "lat": "-22.3598148"
+    },
+    "pathParameters": {
+        "id": "1"
+    }
+}
