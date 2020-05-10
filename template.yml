@@ -1,0 +1,7 @@
+Resources:
+    find:
+        Type: AWS::Serverless::Function
+        Properties:
+            Runtime: nodejs12.x
+            Timeout: 20
+            Handler: src/handler.find

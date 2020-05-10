@@ -1,0 +1,10 @@
+service: teste
+
+provider:
+    name: aws
+
+functions:
+    find:
+        runtime: nodejs12.x
+        timeout: 20
+        handler: src/handler.find
